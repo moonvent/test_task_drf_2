@@ -4,8 +4,7 @@ from test_app.views import EntityViewSet
 
 
 urlpatterns = [
-        path('entity/', 
-             EntityViewSet.as_view({'get': 'list',
-                                    'post': 'create'})),
+    path('entity/', EntityViewSet.as_view({'get': 'list',
+                                           'post': 'create'})),
 ]
 
