@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "tt-drf"
+version = "0.1.0"
+description = ""
+authors = ["moonvent <terraboneystone@proton.me>"]
+readme = "README.md"
+packages = [{include = "tt_drf"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+debugpy = "^1.6.7"
+djangorestframework = "^3.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
