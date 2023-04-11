@@ -10,7 +10,14 @@ class EntityViewSet(viewsets.ModelViewSet):
     serializer_class = EntitySerializer
     permission_classes = (IsAuthenticated,)
 
+    def __add_user_before_update_model(self, 
+                                       serializer):
+        serializer.save(modified_by=self.request.user)
+
+    def perform_create(self, serializer):
+        self.__add_user_before_update_model(serializer=serializer)
+
     def perform_update(self, serializer):
         # answer on first question
-        serializer.save(modified_by=self.request.user)
+        self.__add_user_before_update_model(serializer=serializer)
 
