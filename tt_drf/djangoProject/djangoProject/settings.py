@@ -128,7 +128,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Test task api',
-    'DESCRIPTION': 'Answer on test task [https://teletype.in/@gimntut/mdo-test-drf#gdLt]',
+    'DESCRIPTION': 'Answer on test task [https://teletype.in/@gimntut/mdo-test-drf#gdLt], main api enpoint 127.0.0.1:8000/api/entity/',
     'VERSION': '1.0.0',
     'SCHEMA_PATH_PREFIX': '/api',
     'CONTACT': {'name': 'Nick',
