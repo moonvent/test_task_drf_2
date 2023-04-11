@@ -6,25 +6,25 @@ from test_app.models import Entity, Property
 
 
 class PropertySerializer(serializers.ModelSerializer):
+    # answer on third question
     class Meta:
         model = Property
-        fields = '__all__'
+        fields = ('key', 'value')
 
 
 class EntitySerializer(serializers.ModelSerializer):
     value = serializers.IntegerField(required=False)
     properties = PropertySerializer(required=False,
-                                    many=True, 
+                                    many=True,
                                     read_only=True)
     modified_by = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(),
                                                      required=False)
 
     class Meta:
         model = Entity
-        # fields = ('id', 
-        #           'value',
-        #           'properties')
-        fields = '__all__'
+        fields = ('value', 
+                  'properties', 
+                  'modified_by')
 
     def run_validation(self, data=...):
         # answer on second question
@@ -36,7 +36,4 @@ class EntitySerializer(serializers.ModelSerializer):
             raise APIException(_("*value* field is required"))
 
         return super().run_validation(data)
-
-    def create(self, validated_data):
-        return super().create(validated_data)
 
