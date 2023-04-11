@@ -26,13 +26,13 @@ class EntitySerializer(serializers.ModelSerializer):
                   'properties', 
                   'modified_by')
 
-    def run_validation(self, data=...):
+    def run_validation(self, data: dict):
         # answer on second question
 
-        try:
+        if 'data[value]' in data:
             data['value'] = data.pop('data[value]')
 
-        except KeyError:
+        elif 'value' not in data:
             raise APIException(_("*value* field is required"))
 
         return super().run_validation(data)
